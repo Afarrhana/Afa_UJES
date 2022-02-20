@@ -4,10 +4,9 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
+import ujes.db.ConnectionManager;
 import ujes.dao.SellerDAO;
 import ujes.model.Seller;
-import ujes.db.ConnectionManager;
 
 /**
  * Servlet implementation class RegisterController
@@ -34,9 +33,11 @@ public class RegisterSeller extends HttpServlet {
 		Seller seller = new Seller();
 		//retrieve input and set
 		seller.setSName(request.getParameter("sName"));
+		seller.setShopName(request.getParameter("shopName"));
 		seller.setSPassw(request.getParameter("spassw"));
 		seller.setSEmail(request.getParameter("sEmail"));
-	
+		seller.setAccNo(Long.parseLong(request.getParameter("accNo")));
+		
 		seller = SellerDAO.getSeller(seller);
 		
 		//check if user exists
@@ -50,6 +51,6 @@ public class RegisterSeller extends HttpServlet {
 			}
         	//redirect to login page
         	response.sendRedirect("loginSeller.jsp");
-        }      
+        }
 	}
 }
