@@ -184,6 +184,7 @@ h1{
 	<table style="width:60%; border: 1px solid black; border-collapse: collapse;">
 	
 	<%
+		int no=0;
 		try{
 		connection = DriverManager.getConnection(connectionUrl, userid, password);
 		statement=connection.createStatement();
@@ -194,13 +195,15 @@ h1{
 		<tr id="backprod2">
 			<td style="width:30%; height: 30px;">
 				<center>
-				<%=resultSet.getString("cID") %> &nbsp;&nbsp;&nbsp;&nbsp;
+				<% no=no+1; %>
+				<%=no %> &nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="product-buyer.jsp?pID=<%=resultSet.getString("pID")%>"><img src="images/<%=resultSet.getString("pPics")%>" style="width:50%;background-size: collapsed;"></a></td>
 				<td><b><%=resultSet.getString("pName") %></b><br>
 				Category: <%=resultSet.getString("cName") %><br>
 				Description: <%=resultSet.getString("pDesc") %><br>
-				Price: RM <%=resultSet.getDouble("pPrice") %>
+				Price: RM <%=resultSet.getDouble("pPrice") %><br><br>
 			</td>
+			<td><button><a href="product-buyer.jsp?pID=<%=resultSet.getString("pID")%>">View</a></button></td>
 		</tr>
 		<%
 		}
