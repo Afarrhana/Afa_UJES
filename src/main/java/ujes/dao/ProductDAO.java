@@ -20,7 +20,7 @@ public class ProductDAO {
 	String pName, pDesc, pPics;
 	double pPrice;
 	
-	private static final String INSERT_PRODUCT_SQL = "INSERT INTO Product (pID, pName, pDesc, pPrice, pQty, pPics, cID) VALUES(pID.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+	private static final String INSERT_PRODUCT_SQL = "INSERT INTO Product (pName, pDesc, pPrice, pQty, pPics, cID) VALUES(?, ?, ?, ?, ?, ?)";
 	private static final String SELECT_PRODUCT_BY_ID = "select pID, pName, pDesc, pPrice, pQty, pPics, cID from Product where pID =?";
 	private static final String SELECT_ALL_PRODUCT = "select * from Product";
 	private static final String DELETE_PRODUCT_SQL = "delete from Product where pID = ?";
