@@ -2,22 +2,14 @@
     pageEncoding="ISO-8859-1"%>
     
 <!-- SERVLET FOR RETRIEVE PRODUCT -->
-<%@page import="java.sql.DriverManager"%>
+<%@page import="ujes.db.ConnectionManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%
 String pID = request.getParameter("pID");
 String cID = request.getParameter("cID");
-String driver = "oracle.jdbc.driver.OracleDriver";
-String connectionUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-String userid = "db_gryffindor";
-String password = "system";
-try {
-Class.forName(driver);
-} catch (ClassNotFoundException e) {
-e.printStackTrace();
-}
+
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
@@ -186,7 +178,7 @@ h1{
 	<%
 		int no=0;
 		try{
-		connection = DriverManager.getConnection(connectionUrl, userid, password);
+		connection = ConnectionManager.getConnection();
 		statement=connection.createStatement();
 		String sql ="select * from product natural join category where cID=" + cID;
 		resultSet = statement.executeQuery(sql);
