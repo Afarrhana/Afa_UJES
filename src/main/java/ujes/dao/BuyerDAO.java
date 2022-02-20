@@ -18,98 +18,97 @@ public class BuyerDAO {
 
 	
 	//method for login
-	public static Buyer login(Buyer bean) throws NoSuchAlgorithmException{
-		//get email and password
-		bEmail = bean.getBEmail();
-		bpassw = bean.getBPassw();
+		public static Buyer login(Buyer bean) throws NoSuchAlgorithmException{
+			//get email and password
+			bEmail = bean.getBEmail();
+			bpassw = bean.getBPassw();
 
-		//convert the password to MD5
-		MessageDigest md = MessageDigest.getInstance("MD5");
-		md.update(bpassw.getBytes());
+			//convert the password to MD5
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(bpassw.getBytes());
 
-		byte byteData[] = md.digest();
+			byte byteData[] = md.digest();
 
-		//convert the byte to hex format
-		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < byteData.length; i++) {
-			sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
-		}
-
-		String query = "select * from buyer where bEmail='" + bEmail + "'AND bpassw='" + sb.toString() + "'";
-
-		try {
-			//call getConnection() method //3. create statement  //4. execute query
-			con = ConnectionManager.getConnection();
-			//3. create statement
-			stmt = con.createStatement();
-			//4. execute query
-			rs = stmt.executeQuery(query);
-			boolean more = rs.next();
-
-			// if user exists set the isValid variable to true
-			if (more) {
-				String bEmail = rs.getString("bEmail");
-				bean.setBEmail(bEmail);
-
-				bean.setValid(true);
-			}
-			// if user does not exist set the isValid variable to false
-			else if (!more) {
-				bean.setValid(false);
+			//convert the byte to hex format
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < byteData.length; i++) {
+				sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
 			}
 
-			//5. close connection
-			con.close();
-		}catch(Exception e) {
-			e.printStackTrace();		
-		}
+			String query = "select * from buyer where bEmail='" + bEmail + "'AND bpassw='" + sb.toString() + "'";
 
-		return bean;
-	}
-	
-	
-	//add new buyer (register)
-			public void add(Buyer bean) throws NoSuchAlgorithmException{
-				//get email,name and password
-				bID = bean.getBID();
-				bName = bean.getBName();
-				phoneNo = bean.getPhoneNo();
-				bpassw = bean.getBPassw();
-				bEmail = bean.getBEmail();
+			try {
+				//call getConnection() method //3. create statement  //4. execute query
+				con = ConnectionManager.getConnection();
+				//3. create statement
+				stmt = con.createStatement();
+				//4. execute query
+				rs = stmt.executeQuery(query);
+				boolean more = rs.next();
 
-				MessageDigest md = MessageDigest.getInstance("MD5");
-				md.update(bpassw.getBytes());
+				// if user exists set the isValid variable to true
+				if (more) {
+					String bEmail = rs.getString("bEmail");
+					bean.setBEmail(bEmail);
 
-				byte byteData[] = md.digest();
-
-				//convert the byte to hex format
-				StringBuffer sb = new StringBuffer();
-				for (int i = 0; i < byteData.length; i++) {
-					sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+					bean.setValid(true);
 				}
-				String bpassw = sb.toString();
-
-				try {
-					//call getConnection() method 
-					con = ConnectionManager.getConnection();
-					//3. create statement  
-					String query = "INSERT INTO BUYER(BID,BNAME,PHONENO,BPASSW,BEMAIL)values(bID_pk.nextval,?,?,?,?)";
-					ps=con.prepareStatement(query);
-					ps.setInt(1,bID);
-					ps.setString(2,bName);
-					ps.setInt(3,phoneNo);
-					ps.setString(4,bpassw);
-					ps.setString(5,bEmail);
-					//4. execute query
-					ps.executeUpdate();			
-					
-					//5. close connection
-					con.close();
-				}catch(Exception e) {
-					e.printStackTrace();		
+				// if user does not exist set the isValid variable to false
+				else if (!more) {
+					bean.setValid(false);
 				}
 
+				//5. close connection
+				con.close();
+			}catch(Exception e) {
+				e.printStackTrace();		
 			}
+
+			return bean;
+		}
+	
+	
+		//add new buyer (register)
+		public void add(Buyer bean) throws NoSuchAlgorithmException{
+			//get email,name and password
+			bID = bean.getBID();
+			bName = bean.getBName();
+			phoneNo = bean.getPhoneNo();
+			bpassw = bean.getBPassw();
+			bEmail = bean.getBEmail();
+
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(bpassw.getBytes());
+
+			byte byteData[] = md.digest();
+
+			//convert the byte to hex format
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < byteData.length; i++) {
+				sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+			}
+			String bpassw = sb.toString();
+
+			try {
+				//call getConnection() method 
+				con = ConnectionManager.getConnection();
+				//3. create statement  
+				String query = "INSERT INTO BUYER(BNAME,PHONENO,BPASSW,BEMAIL)values(?,?,?,?)";
+				ps=con.prepareStatement(query);
+				ps.setString(1,bName);
+				ps.setInt(2,phoneNo);
+				ps.setString(3,bpassw);
+				ps.setString(4,bEmail);
+				//4. execute query
+				ps.executeUpdate();			
+				
+				//5. close connection
+				con.close();
+			}catch(Exception e) {
+				e.printStackTrace();		
+			}
+
+		}
 
 			//method to get buyer
 			public static Buyer getBuyer(Buyer bean)  {   
