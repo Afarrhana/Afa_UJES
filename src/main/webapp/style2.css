@@ -1,0 +1,199 @@
+@charset "ISO-8859-1";
+
+body{
+	background-image: url('imagesM/background1.jpg');
+	background-size: fixed;
+	width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1{
+	text-align: center;
+	text-size-adjust: bold;
+	font-size: 64;
+	font-family: sans-serif;
+	color: #420B89;
+	position: static;
+	width: 318;
+	height: 77;
+}
+
+#category {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#category td, #category th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#category tr:nth-child(odd){background-color: white;}
+#category tr:nth-child(even){background-color: #f2f2f2;}
+#category tr:hover {background-color: #ddd;}
+
+#category th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: purple;
+  color: white;
+}
+#ujesbutton{
+  background-color: purple;
+  border-radius: 10px;
+  float: right;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input[type=submit], input[type=reset] {
+	background-color: purple;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#addCtgry td{
+	border: 1px;
+	padding: 8px;
+	float: left;
+	width: 35%;
+	margin-top: 6px;
+	text-size-adjust: extrabold;
+	font-size: 34;
+	color: purple;
+}
+
+#product {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#product td, #product th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#product tr:nth-child(odd){background-color: white;}
+#product tr:nth-child(even){background-color: #f2f2f2;}
+#product tr:hover {background-color: #ddd;}
+
+#product th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: purple;
+  color: white;
+}
+
+#backprod {
+    background-color: whitesmoke;
+    width: 60%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#backprod2 {
+    background-color: whitesmoke;
+    width: 80%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 60%;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=number] {
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=number]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+  #buybtn{
+    background-color: purple;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .prodfeedbek {
+      background-color: #ddd;
+      padding: 12px;
+  }
