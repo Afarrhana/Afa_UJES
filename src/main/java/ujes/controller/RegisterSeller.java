@@ -36,7 +36,7 @@ public class RegisterSeller extends HttpServlet {
 		seller.setShopName(request.getParameter("shopName"));
 		seller.setSPassw(request.getParameter("spassw"));
 		seller.setSEmail(request.getParameter("sEmail"));
-		seller.setAccNo(Int.parseInt(request.getParameter("accNo")));
+		seller.setAccNo(Integer.parseInt(request.getParameter("accNo")));
 		
 		seller = SellerDAO.getSeller(seller);
 		
