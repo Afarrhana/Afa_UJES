@@ -10,7 +10,7 @@
 </head>
 <style>
     body{
-        background-image: url('imagesM/background.jpg');
+        background-image: url('imagesM/background2.jpg');
         background-size: cover;
     
     }
