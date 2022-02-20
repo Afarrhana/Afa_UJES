@@ -65,7 +65,7 @@
 		<iframe class="frame"></iframe>
 	</div>
 <div class="centered">
-	<form action="LoginBServlet" method="post">
+	<form action="LoginBuyer" method="post">
 	<h3  class="memberLogin" align="center">BUYER LOGIN</h3>
 
 	<div data-validate="Valid email is required: ex@abc.xyz">
