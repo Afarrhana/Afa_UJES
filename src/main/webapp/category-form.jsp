@@ -45,10 +45,10 @@ ADMINISTRATOR
 	</caption>
 	<div align="center">
 	<c:if test="${c != null}">
-		<form action="UpdateCategory" method="post" enctype="multipart/form-data">
+		<form action="UpdateCategory" method="post">
 	</c:if>
 	<c:if test="${c == null}">
-		<form action="AddCategory" method="post" enctype="multipart/form-data">
+		<form action="AddCategory" method="post">
 	</c:if>
 	
 	<c:if test="${c != null}">
