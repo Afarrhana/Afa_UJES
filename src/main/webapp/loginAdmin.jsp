@@ -10,7 +10,7 @@
 </head>
 <style>
     body{
-        background-image: url('imagesM/background2.jpg');
+        background-image: url('images/background.jpg');
         background-size: cover;
     
     }
@@ -25,7 +25,7 @@
   	width: 710px;
   	height: 397px;
   	overflow: visible;
-  	background-image: url('imagesM/background3.jpg');
+  	background-image: url(images/image1.jpeg );
   	background-size: cover;
   	background-repeat: no-repeat;
   	background-position: center;
