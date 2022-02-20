@@ -18,7 +18,7 @@ public class CategoryDAO {
 	int cID;
 	String cName, cPics;
 	
-	private static final String INSERT_CATEGORY_SQL = "INSERT INTO Category(cID, cName, cPics) VALUES(cID.NEXTVAL, ?, ?)";
+	private static final String INSERT_CATEGORY_SQL = "INSERT INTO Category(cName, cPics) VALUES(?, ?)";
 	private static final String SELECT_CATEGORY_BY_ID = "select cID, cName, cPics from Category where cID =?";
 	private static final String SELECT_ALL_CATEGORY = "select * from Category";
 	private static final String DELETE_CATEGORY_SQL = "delete from Category where cID = ?";
