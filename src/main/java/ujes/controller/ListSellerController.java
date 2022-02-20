@@ -1,4 +1,4 @@
-package oracle.controller;
+package ujes.controller;
 
 public class ListSellerController {
 
