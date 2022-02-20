@@ -22,7 +22,7 @@ public class AdminDAO {
 	static String aName;
 	static String aPassw;
 	
-	private static final String INSERT_ADMIN_SQL = "INSERT INTO ADMIN(aID, aName, Passw, newaID) VALUES(aID.NEXTVAL, ?, ?, 1)";
+	private static final String INSERT_ADMIN_SQL = "INSERT INTO ADMIN(aName, Passw, newaID) VALUES(?, ?, 1)";
 	private static final String SELECT_ADMIN_BY_ID = "select aID, aName, Passw from Admin where aID =? and aID!=1";
 	private static final String SELECT_ALL_ADMIN = "select * from Admin";
 	private static final String DELETE_ADMIN_SQL = "delete from Admin where aID = ?";
