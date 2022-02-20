@@ -35,7 +35,7 @@ public class UpdateCategory extends HttpServlet {
 		Category d = new Category();
 		d.setcID(Integer.parseInt(request.getParameter("cID")));
 		d.setcName(request.getParameter("cName"));
-		d.setcPics("cPics");
+		d.setcPics(request.getParameter("cPics"));
 		System.out.println(d.getcID() + d.getcName() + d.getcPics());
 		
 		dao.updateCategory(d);
