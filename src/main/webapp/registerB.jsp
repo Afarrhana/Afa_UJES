@@ -12,7 +12,7 @@
 </head>
 <style>
     body{
-        background-image: url('imagesM/background2.jpg');
+        background-image: url('images/background.jpg');
         background-size: cover;
     
     }
@@ -25,9 +25,9 @@
 	}
 	.frame {
   	width: 710px;
-  	height: 397px;
+  	height: 460px;
   	overflow: visible;
-  	background-image: url('imagesM/background3.jpg');
+  	background-image: url( images/image1.jpeg );
   	background-size: cover;
   	background-repeat: no-repeat;
   	background-position: center;
@@ -65,14 +65,18 @@
 	</div>
 	
 	<div class="centered">
-	<form action="RegisterBServlet" method="post">
+	<form action="RegisterBuyer" method="post" onsubmit ="return validateForm()">
 	<div>
 	
-	<h3  class="register">REGISTRATION</h3>
+	<center><h3  class="register">REGISTRATION</h3>
 	</div>
 	<div>
 	<i class="material-icons" style="font-size:25px">person</i>
 	<input style="width: 80%; font-size:16px;" type="text" name="bName" placeholder="Username" required>
+	</div><br>
+	<div>
+	<i class="material-icons" style="font-size:25px">phone</i>
+	<input style="width: 80%; font-size:16px;" type="text" name="phoneNo" placeholder="Phone Number" required>
 	</div><br>
 	<div>
 	<i class="material-icons" style="font-size:25px">email</i>
@@ -80,14 +84,17 @@
 	</div><br>
 	<div>
 	<i class="material-icons" style="font-size:25px">lock_outline</i>
-	<input style="width: 80%; font-size:16px;" class="input100" type="password" name="bpassw" placeholder="Password" required>
+	<input style="width: 80%; font-size:16px;" class="input100" type="password" name="bpassw" id="password1" placeholder="Password" required><br>
+	<span style="font-size:16px; color:red" id = "message1" > </span>
 	</div><br>
 	<div>
 	<i class="material-icons" style="font-size:25px">lock_open</i>
-	<input style="width: 80%; font-size:16px;" class="input100" type="password" name="Cpassword" placeholder="Confirm Password" required>
+	<input style="width: 80%; font-size:16px;" class="input100" type="password" name="Cpassword" id="password2" placeholder="Confirm Password" required><br>
+	<span style="font-size:16px; color:red" id = "message2" > </span>
 	</div>
 	 <br>
 	<div>
+	</center>
         <center>
             <a><button class="button">Submit</button></a>
         </center>
@@ -98,19 +105,48 @@
 
 	</form>
 	</div>
-</div>
-
 <script>
-	function validate() {
-	  const password = document.querySelector('input[name=bpassw]');
-	  const confirm = document.querySelector('input[name=Cpassword]');
-	  if (confirm.value === password.value) {
-		confirm.setCustomValidity('');
-	  } else {
-		confirm.setCustomValidity('Passwords do not match');
-	  }
+	
+	function validateForm(){
+	
+	var password1 = document.getElementById("password1").value;
+	var password2 = document.getElementById("password2").value;
+	
+	//validate empty pssw & confirm pssword
+	if(password1 == "")
+	{ 
+		document.getElementById("message1").innerHTML="**Password Empty!";
+		return false;
+	}
+	if(password2 == "")
+	{ 
+		document.getElementById("message2").innerHTML="**Password Empty!";
+		return false;
 	}
 	
+	//validate password length
+	//max
+	if(password1.length > 12)
+	{ 
+		document.getElementById("message1").innerHTML="**Password length must be less than 12 characters";
+		return false;
+	}
+	//min
+	if(password1.length < 6)
+	{ 
+		document.getElementById("message1").innerHTML="**Password must be at least 6 characters long.";
+		return false;
+	}
+	
+	//pssword same or not
+  if(password1 != password2) {  
+      document.getElementById("message2").innerHTML = "**Confirm Password should match with the Password!";  
+      return false;  
+    } else {  
+      alert ("Your password created successfully");    
+    }  
+ }  
+
 </script>
 </body>
 </html>
