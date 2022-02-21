@@ -52,7 +52,7 @@ public class ProductDAO {
 		}catch(Exception e) { e.printStackTrace(); }
 	}//end add
 	
-	public void addBridgeProduct(Product bean) {
+	/*public void addBridgeProduct(Product bean) {
 		pName = bean.getpName();
 		pDesc = bean.getpDesc();
 		pPrice = bean.getpPrice();
@@ -76,7 +76,7 @@ public class ProductDAO {
 			
 			con.close();
 		}catch(Exception e) { e.printStackTrace(); }
-	}//end add
+	}//end add*/
 	
 	public static List<Product> getAllProduct() {
 		List <Product> product = new ArrayList<Product>();
