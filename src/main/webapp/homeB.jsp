@@ -45,11 +45,6 @@ ResultSet resultSet = null;
     <a id="left" class="active" href="homeB.jsp">Home</a>
   	</div>
 		
-			<form action="search.jsp" method="get">
-		<center><input type="text" class="form-control" name="search" placeholder="search product..."/>
-			<input type="submit"/>
-		</center>
-	</form>
   	
   	<div class="dropdown">
 		<button class="dropbtn"><%=bEmail%><img src="imagesM/avatar.png" alt="Avatar" class="avatar"> 
