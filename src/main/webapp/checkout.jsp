@@ -46,7 +46,7 @@ String bID = request.getParameter("bID");
   	</div>
   	
   	<div class="dropdown">
-		<button class="dropbtn">BUYER <img src="images/avatar.png" alt="Avatar" class="avatar"> 
+		<button class="dropbtn"><%=bEmail%><img src="imagesM/avatar.png" alt="Avatar" class="avatar"> 
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">
