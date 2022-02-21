@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     
 <!-- SERVLET FOR RETRIEVE CATEGORY -->
-<%@page import="java.sql.DriverManager"%>
+<%@page import="ujes.db.ConnectionManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
