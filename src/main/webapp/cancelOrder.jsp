@@ -8,7 +8,7 @@
 		Connection conn = ConnectionManager.getConnection();
 		Statement st = conn.createStatement();
 		int i=st.executeUpdate("DELETE FROM OrderProduct WHERE odID="+odID);
-    	response.sendRedirect("homeBCopy.jsp");
+    	response.sendRedirect("homeB.jsp");
 	}
 	catch(Exception e)
 	{
