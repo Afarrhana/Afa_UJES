@@ -60,10 +60,10 @@
 	</caption>
 	<div align="center">
 	<c:if test="${p != null}">
-		<form action="UpdateProduct" method="post" enctype="multipart/form-data">
+		<form action="UpdateProduct" method="post">
 	</c:if>
 	<c:if test="${p == null}">
-		<form action="AddProduct" method="post" enctype="multipart/form-data">
+		<form action="AddProduct" method="post">
 	</c:if>
 	
 	<c:if test="${p != null}">
