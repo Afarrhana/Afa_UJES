@@ -3,16 +3,6 @@ package ujes.model;
 public class Review {
 	private int fID, bID, pID, pRate;
 	private String pComment, pImage;
-
-	public Review(int fID, int bID, int pID, int pRate, String pComment, String pImage) {
-		super();
-		this.fID = fID;
-    this.bID = bID;
-    this.pID = pID;
-    this.pRate = pRate;
-    this.pComment = pComment;
-    this.pImage = pImage;
-	}
 	public Review(int fID, int bID, int pID, int pRate, String pComment, String pImage) {
 		super();
 		this.fID = fID;
