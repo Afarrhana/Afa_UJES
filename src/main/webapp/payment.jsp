@@ -21,16 +21,7 @@
 String pID = request.getParameter("pID");
 String bID = request.getParameter("bID");
 String odID = request.getParameter("odID");
-String driver = "oracle.jdbc.driver.OracleDriver";
-String connectionUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-String userid = "db_gryffindor";
-String password = "system";
 
-try {
-Class.forName(driver);
-} catch (ClassNotFoundException e) {
-e.printStackTrace();
-}
 %>    
 <!-- END SERVLET FOR RETRIEVE CATEGORY -->   
    
@@ -57,7 +48,7 @@ e.printStackTrace();
   	</div>
   	
   	<div class="dropdown">
-		<button class="dropbtn"><%=bEmail%><img src="images/avatar.png" alt="Avatar" class="avatar"> 
+		<button class="dropbtn"><%=bEmail%><img src="imagesM/avatar.png" alt="Avatar" class="avatar"> 
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">
@@ -83,7 +74,7 @@ e.printStackTrace();
 	
 	<%
 	try{
-		Connection con = DriverManager.getConnection(connectionUrl, userid, password);
+		Connection con = ConnectionManager.getConnection();
 		Statement st=con.createStatement();
 		ResultSet rs=st.executeQuery("select * from Payment p join OrderProduct o on p.odID=o.odID join buyer b on o.bID=b.bID where b.bID=1" );
 		while (rs.next()) {
