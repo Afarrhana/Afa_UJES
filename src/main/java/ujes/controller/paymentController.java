@@ -52,7 +52,7 @@ public class paymentController extends HttpServlet {
 		java.sql.Date payDate = new java.sql.Date(date.getTime());
 		
 		try {
-			String searchQuery = "insert into Payment(payID, payDate, odID) values (PAYID.NextVal, '"+payDate+"','"+odID+"')";
+			String searchQuery = "insert into Payment(payDate, odID) values ('"+payDate+"','"+odID+"')";
 			Connection con = ConnectionManager.getConnection();
 			ResultSet rs = null; 
 			PreparedStatement ps=null;
