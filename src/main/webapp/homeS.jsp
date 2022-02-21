@@ -104,7 +104,7 @@ ResultSet resultSet = null;
 			<div class="card">
 			  <img src="images/<%=resultSet.getString("pPics")%>" alt="product" style="padding-top:5%;width:95px;height:95px">
 			  <h1 style="padding:12px"><%=resultSet.getString("pName")%></h1>
-			  <p><a href="product-buyer.jsp?pID=<%=resultSet.getString("pID")%>"><button>View</button></a></p>
+			  <p><a href="product-seller.jsp?pID=<%=resultSet.getString("pID")%>"><button>View</button></a></p>
 			</div>	
 		</th>	
 		<%
