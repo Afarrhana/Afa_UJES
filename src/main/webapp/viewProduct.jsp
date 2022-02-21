@@ -40,7 +40,7 @@ ResultSet resultSet = null;
 <body>
 	<div class="topnav">
   	<div class="topnav-left">
-    <a id="left" href="#home">Home</a>
+    <a id="left" href="homeB.jsp">Home</a>
     <a id="left" href="#book">Category</a>
     <a id="left"  class="active" href="#product">Product</a>
   	</div>
