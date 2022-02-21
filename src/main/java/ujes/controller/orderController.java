@@ -58,7 +58,7 @@ public class orderController extends HttpServlet {
 		totalPrice=pPrice*qty;
 		
 		try {
-			String searchQuery = "insert into OrderProduct(odID, odDate, pID, bID, qty, totprice) values (ODID.NextVal, '"+currDate+"','"+pID+"', '"+bID+"' ,'"+qty+"', '"+totalPrice+"')";
+			String searchQuery = "insert into OrderProduct(odDate, pID, bID, qty, totprice) values ('"+currDate+"','"+pID+"', '"+bID+"' ,'"+qty+"', '"+totalPrice+"')";
 			Connection con = ConnectionManager.getConnection();
 			 ResultSet rs = null; 
 			PreparedStatement ps=null;
