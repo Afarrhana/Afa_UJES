@@ -67,9 +67,10 @@ ResultSet resultSet = null;
 	
 	<%
 	try{
-		Connection connection = ConnectionDriverManager.getConnection();
-		Statement statement=con.createStatement();
-		ResultSet resultSet=st.executeQuery("select * from OrderProduct o join product p on o.pID=p.pID join buyer b  on o.bID=b.bID where b.bID=?");
+		connection = ConnectionDriverManager.getConnection();
+		statement = connection.createStatement();
+		String sql = "select * from OrderProduct o join product p on o.pID=p.pID join buyer b  on o.bID=b.bID where b.bID=?"
+		resultSet= statement.executeQuery(sql)
 		while (rs.next()) {
 
 	 
