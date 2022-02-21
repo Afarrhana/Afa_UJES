@@ -18,7 +18,7 @@ String bID = request.getParameter("bID");
   response.setHeader("Pragma","no-cache");
   response.setDateHeader ("Expires", 0);
   if(session.getAttribute("currentSessionBuyer")==null)
-      response.sendRedirect("/0000 UJES SYSTEM/loginB.jsp");
+      response.sendRedirect("/0000 UJES SYSTEM/loginBuyer.jsp");
   %>
 <% String bEmail = (String) session.getAttribute("currentSessionBuyer");%> 
 <!-- END SERVLET FOR RETRIEVE CATEGORY -->   
