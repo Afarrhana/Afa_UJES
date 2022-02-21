@@ -235,7 +235,7 @@ h1{
                 <form action="AddFeedback" method="post">
                 	<h3>Add Feedback</h3>
                 	Comment: <input type="text" name="pComment"><br>
-	                <p>Rate (1-5): <input type="number" min="1" max="5"><br>
+	                <p>Rate (1-5): <input type="number" name="pRate" min="1" max="5"><br>
 	                <p>Image: <input type="file" name="pImage"><br>
 	                <input type="hidden" value="pID">
 	                <input type="hidden" value="bID">
