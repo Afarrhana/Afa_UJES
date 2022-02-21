@@ -12,7 +12,7 @@
   response.setHeader("Pragma","no-cache");
   response.setDateHeader ("Expires", 0);
   if(session.getAttribute("currentSessionSeller")==null)
-      response.sendRedirect("/0000 UJES SYSTEM/loginS.jsp");
+      response.sendRedirect("/0000 UJES SYSTEM/loginSeller.jsp");
   %>
 <% String sEmail = (String) session.getAttribute("currentSessionSeller");%>
 <%
