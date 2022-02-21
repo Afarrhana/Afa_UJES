@@ -76,7 +76,7 @@ String bID = request.getParameter("bID");
   		
   		
 		<center>
-		<form method="post" action="">
+		<form method="post" action="paymentController">
 		<br>
 		
 			<div class="form-row">
