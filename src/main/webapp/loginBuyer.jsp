@@ -75,7 +75,7 @@
 	
 	<div data-validate="Password is required">
 	<i class="material-icons" style="font-size:25px text-align:center;">lock</i>
-	<input style="width: 80%; font-size:16px;" type="password" name="bPassw" placeholder="Password" required>
+	<input style="width: 80%; font-size:16px;" type="password" name="bpassw" placeholder="Password" required>
 	</div><br>
 	
 	<div>
