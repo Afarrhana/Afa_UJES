@@ -79,7 +79,7 @@ public class orderController extends HttpServlet {
 			
 		}
 			
-	response.sendRedirect("payment.jsp");
+	response.sendRedirect("checkout.jsp");
 		
 		
 	}
