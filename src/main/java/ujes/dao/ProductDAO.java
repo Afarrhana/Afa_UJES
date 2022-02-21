@@ -25,7 +25,8 @@ public class ProductDAO {
 	private static final String SELECT_ALL_PRODUCT = "select * from Product";
 	private static final String DELETE_PRODUCT_SQL = "delete from Product where pID = ?";
 	private static final String UPDATE_PRODUCT_SQL = "update Product set pName =?, pDesc=?, pPrice=?, pQty=?, pPics=?, cID=? where pID =?";
-	
+	private static final String INSERT_PRODUCTBRIDGE_SQL = "";
+
 	public void addProduct(Product bean) {
 		pName = bean.getpName();
 		pDesc = bean.getpDesc();
@@ -52,31 +53,22 @@ public class ProductDAO {
 		}catch(Exception e) { e.printStackTrace(); }
 	}//end add
 	
-	/*public void addBridgeProduct(Product bean) {
-		pName = bean.getpName();
-		pDesc = bean.getpDesc();
-		pPrice = bean.getpPrice();
-		pQty = bean.getpQty();
-		pPics = bean.getpPics();
+	//kiv
+	public void addBridgeProduct(Product bean) {
 		cID = bean.getcID();
 		
 		try {
 			con = ConnectionManager.getConnection();
 			
-			ps = con.prepareStatement(INSERT_PRODUCT_SQL);
-			ps.setString(1, pName);
-			ps.setString(2, pDesc);
-			ps.setDouble(3, pPrice);
-			ps.setInt(4, pQty);
-			ps.setString(5, pPics);
-			ps.setInt(6, cID);
+			ps = con.prepareStatement(INSERT_PRODUCTBRIDGE_SQL);
+			ps.setString(1, cID);
 
 			ps.executeUpdate();
 			System.out.println("Succesfully inserted product");
 			
 			con.close();
 		}catch(Exception e) { e.printStackTrace(); }
-	}//end add*/
+	}//end add
 	
 	public static List<Product> getAllProduct() {
 		List <Product> product = new ArrayList<Product>();
