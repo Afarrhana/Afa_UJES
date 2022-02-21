@@ -202,11 +202,11 @@ h1{
         </div>
         
             <div class="form-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
+            <form action="orderController" method="post" class="form-container">
                 <h2>Insert detail</h2>
 
-                <label for="quantity"><b>Quantity</b></label>
-                <input type="number" name="quantity" required>
+                <label for="qty"><b>Quantity</b></label>
+                <input type="number" name="qty" required>
 
                 <button type="submit" class="btn">Buy Now</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
