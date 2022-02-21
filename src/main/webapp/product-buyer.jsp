@@ -206,7 +206,7 @@ h1{
                 
 				<input type="hidden" name="pPrice" value="<%=rs.getString("pPrice") %>">
 				<input type="hidden" name="pID" value="<%=rs.getString("pID") %>">
-				<input type="hidden" name="bID" value="1">
+				<input type="hidden" name="bID" value="<%=rs.getString("bID") %>">
 				
 				
 				
