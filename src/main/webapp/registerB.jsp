@@ -80,7 +80,7 @@
 	</div><br>
 	<div>
 	<i class="material-icons" style="font-size:25px">email</i>
-	<input style="width: 80%; font-size:16px;" type="text" name="bEmail" placeholder="Email" required>
+	<input style="width: 80%; font-size:16px;" type="email" name="bEmail" placeholder="Email" required>
 	</div><br>
 	<div>
 	<i class="material-icons" style="font-size:25px">lock_outline</i>
