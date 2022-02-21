@@ -3,9 +3,16 @@
     
 <!-- SERVLET FOR RETRIEVE CATEGORY -->
 <%@page import="ujes.db.ConnectionManager"%>
+<%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement" %>
+<%
+String pID = request.getParameter("pID");
+String bID = request.getParameter("bID");
+
+%>
  <%
   response.setHeader("Cache-Control","no-cache");
   response.setHeader("Cache-Control","no-store");
@@ -15,14 +22,6 @@
       response.sendRedirect("/0000 UJES SYSTEM/loginB.jsp");
   %>
 <% String bEmail = (String) session.getAttribute("currentSessionBuyer");%> 
-<%
-String pID = request.getParameter("pID");
-String bID = request.getParameter("bID");
-
-Connection connection = null;
-Statement statement = null;
-ResultSet resultSet = null;
-%>    
 <!-- END SERVLET FOR RETRIEVE CATEGORY -->   
   
 <!DOCTYPE html>
@@ -48,7 +47,7 @@ ResultSet resultSet = null;
   	</div>
   	
   	<div class="dropdown">
-		<button class="dropbtn"><%=bEmail%><img src="images/avatar.png" alt="Avatar" class="avatar"> 
+		<button class="dropbtn">BUYER <img src="images/avatar.png" alt="Avatar" class="avatar"> 
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">
@@ -65,26 +64,26 @@ ResultSet resultSet = null;
 	
 	<%
 	try{
-		connection = ConnectionDriverManager.getConnection();
-		statement = connection.createStatement();
-		String sql = "select * from OrderProduct o join product p on o.pID=p.pID join buyer b  on o.bID=b.bID where b.bID=?"
-		resultSet= statement.executeQuery(sql)
+		Connection con = DriverManager.getConnection(connectionUrl, userid, password);
+		Statement st=con.createStatement();
+		ResultSet rs=st.executeQuery("select * from OrderProduct o join product p on o.pID=p.pID join buyer b  on o.bID=b.bID where b.bID=1" );
 		while (rs.next()) {
 
 	 
 	%>
 	
-	
+	<div >
   		<table class="center" style="width:80%;">
   		
+  		
 		<center>
-		<form method="post" action="paymentController">
+		<form method="post" action="">
 		<br>
 		
 			<div class="form-row">
 						<div class="form-group col-md-6 col-sm-6">
 							<label for="bName"><b>Name</b></label> <input type="text" style="width:400px;"
-								class="form-control" name="bName" id="bName" value=<%=rs.getString("bName")%> readonly>
+								class="form-control" name="bName" id="bName" value=<%=rs.getString("pName")%> readonly>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="phoneNo"><b>Phone Number</b></label> 
@@ -120,22 +119,15 @@ ResultSet resultSet = null;
 							<input style="width:400px;"	type="text" class="form-control" name="totprice" id="totprice" value="RM <%=rs.getString("totprice")%>" readonly>
 							<br>
 						</div><br>
-							<input type="hidden" name="odID" value="<%=rs.getString("odID")%>"/>
-						<div class="form-group col-md-6 col-sm-6">
-							<button type="submit">pay now</button>
-							
-							<br>
-							</div><br>
-						
 			</div>
-		</form> 
-		
-		
-		</center>
-		</table>
 			
-	
-	<%
+			<input type="hidden" name="bID" id="bID" value=""/>
+			<input type="hidden" name="pID" id="pID" value=""/>
+				
+			
+			<input type="submit" value="confirm order">
+		</form>	
+		<%
 		}
 		con.close();
 		} catch (Exception e) {
@@ -143,5 +135,9 @@ ResultSet resultSet = null;
 		}
 		%>
 		
+		</center>
+		</table>
+	</div>
+	
 </body>
 </html>
