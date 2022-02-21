@@ -37,7 +37,7 @@ String bID = request.getParameter("bID");
 </head>
 <div class="frame">
 <img src="" alt="" style="height:50px;">
-    <center><img src="images/MASMED.png" alt="" style="height:60px;"></center>
+    <center><img src="imagesM/MASMED.png" alt="" style="height:60px;"></center>
 </div>
 <body>
 	<div class="topnav">
