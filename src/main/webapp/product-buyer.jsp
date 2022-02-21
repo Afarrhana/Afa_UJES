@@ -195,9 +195,9 @@ h1{
 			
             <button onclick="openForm()" id="buybtn">Buy Now</button>
 			
-		<input type="hidden" name="pPrice" value="<%=resultSet.getString("pPrice") %>">
-		<input type="hidden" name="pID" value="<%=resultSet.getString("pID") %>">
-		<input type="hidden" name="bID" value="<%=resultSet.getString("bID") %>">
+		<input type="hidden" name="pPrice" value="<%=resultSet.getFloat("pPrice") %>">
+		<input type="hidden" name="pID" value="<%=resultSet.getInt("pID") %>">
+		<input type="hidden" name="bID" value="<%=resultSet.getInt("bID") %>">
             <%
 			}
 			con.close();
