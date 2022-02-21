@@ -61,7 +61,7 @@ public class ProductDAO {
 			con = ConnectionManager.getConnection();
 			
 			ps = con.prepareStatement(INSERT_PRODUCTBRIDGE_SQL);
-			ps.setString(1, cID);
+			ps.setInt(1, cID);
 
 			ps.executeUpdate();
 			System.out.println("Succesfully inserted product");
