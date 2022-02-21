@@ -11,15 +11,7 @@
 <%
 String pID = request.getParameter("pID");
 String bID = request.getParameter("bID");
-String driver = "oracle.jdbc.driver.OracleDriver";
-String connectionUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-String userid = "db_gryffindor";
-String password = "system";
-try {
-Class.forName(driver);
-} catch (ClassNotFoundException e) {
-e.printStackTrace();
-}
+
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
@@ -66,7 +58,7 @@ ResultSet resultSet = null;
 	
 	<%
 	try{
-		Connection con = DriverManager.getConnection(connectionUrl, userid, password);
+		Connection con = ConnectionDriverManager.getConnection();
 		Statement st=con.createStatement();
 		ResultSet rs=st.executeQuery("select * from OrderProduct o join product p on o.pID=p.pID join buyer b  on o.bID=b.bID where b.bID=1" );
 		while (rs.next()) {
