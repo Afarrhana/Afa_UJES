@@ -192,7 +192,7 @@ h1{
 	rs = st.executeQuery(sql);
 	while(rs.next()){
 	%>
-	        <div id="backprod">
+	        <div id="backprod2">
             <h1><%=rs.getString("pName") %></h1>
             <hr>
             <center><img src="images/<%=rs.getString("pPics") %>" name="pPics" style="position: sticky; width: 60%;background-size: collapsed;"></center><br>
