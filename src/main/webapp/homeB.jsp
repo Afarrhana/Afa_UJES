@@ -6,7 +6,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="ujes.model.Seller"%>
+<%@page import="ujes.model.Buyer"%>
   <%
   response.setHeader("Cache-Control","no-cache");
   response.setHeader("Cache-Control","no-store");
