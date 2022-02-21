@@ -65,7 +65,7 @@ String bID = request.getParameter("bID");
 	try{
 		Connection con = ConnectionManager.getConnection();
 		Statement st=con.createStatement();
-		ResultSet rs=st.executeQuery("select * from OrderProduct o join product p on o.pID=p.pID join buyer b  on o.bID=b.bID where b.bID=1" );
+		ResultSet rs=st.executeQuery("select * from OrderProduct o join product p on o.pID=p.pID join buyer b  on o.bID=b.bID where b.bID=?" );
 		while (rs.next()) {
 
 	 
