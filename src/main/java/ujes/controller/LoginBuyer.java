@@ -1,11 +1,10 @@
-package ujes.controller;
+package oracle.controller;
 
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
-import ujes.dao.CategoryDAO;
 import ujes.dao.BuyerDAO;
 import ujes.model.Buyer;
 
