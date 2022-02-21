@@ -123,6 +123,7 @@ ResultSet resultSet = null;
 							<input type="hidden" name="odID" value="<%=rs.getString("odID")%>"/>
 						<div class="form-group col-md-6 col-sm-6">
 							<button type="submit">pay now</button>
+							<a class="button" href="cancelOrder.jsp?odID=<%=resultSet.getString("odID") %>" onclick="return confirm('Are you sure you want to cancel order?');">Cancel</a>
 							
 							<br>
 							</div><br>
