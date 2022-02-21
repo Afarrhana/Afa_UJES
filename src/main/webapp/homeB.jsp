@@ -1,18 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- SERVLET FOR RETRIEVE CATEGORY -->
 <%@page import="ujes.db.ConnectionManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="ujes.model.Seller"%>
+
 <%
-String cID = request.getParameter("cID");
-String bID = request.getParameter("bID");
+//int bID = Integer.parseInt(request.getParameter("bID"));
+
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
-%>    
+%> 
 <!-- END SERVLET FOR RETRIEVE CATEGORY -->   
     
 <!DOCTYPE html>
