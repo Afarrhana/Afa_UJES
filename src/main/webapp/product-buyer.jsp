@@ -100,6 +100,7 @@ h1{
     max-width: 300px;
     padding: 10px;
     background-color: white;
+	margin: auto;
   }
   
   /* Full-width input fields */
