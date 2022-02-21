@@ -11,14 +11,6 @@ Connection con = null;
 Statement st = null;
 ResultSet rs = null;
 %>
-<%
-	try{
-	con = ConnectionManager.getConnection();
-	st = con.createStatement();
-	String sql ="select * from product NATURAL JOIN CATEGORY where pID=" + pID;
-	rs = st.executeQuery(sql);
-	while(rs.next()){
-	%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -181,7 +173,15 @@ h1{
 	</div><br>
 	
 	<h1>PRODUCT</h1>
-	<form action="orderController" class="form-container">
+	<form action="orderController" class="form-container" method="post">
+	<%
+	try{
+	con = ConnectionManager.getConnection();
+	st = con.createStatement();
+	String sql ="select * from product NATURAL JOIN CATEGORY where pID=" + pID;
+	rs = st.executeQuery(sql);
+	while(rs.next()){
+	%>
 	        <div id="backprod">
             <h1><%=rs.getString("pName") %></h1>
             <hr>
@@ -192,12 +192,23 @@ h1{
             <p>Quantity Available: <label for=""><%=rs.getInt("pQty") %></label><br></p>
             <p>Category: <label for="cID"><%=rs.getString("cName") %></label><br></p>
             <p>Description: <label for="pDesc"><%=rs.getString("pDesc") %></label><br><br></p>
-			
-            <button onclick="openForm()" id="buybtn">Buy Now</button>
-			
-		<input type="hidden" name="pPrice" value="<%=resultSet.getFloat("pPrice") %>">
-		<input type="hidden" name="pID" value="<%=resultSet.getInt("pID") %>">
-		<input type="hidden" name="bID" value="<%=resultSet.getInt("bID") %>">
+			<label for="qty"><b>Quantity</b></label>
+                <input type="number" name="qty" required>
+                
+                
+                
+				<input type="hidden" name="pPrice" value="<%=rs.getString("pPrice") %>">
+				<input type="hidden" name="pID" value="<%=rs.getString("pID") %>">
+				<input type="hidden" name="bID" value="1">
+				
+				
+				
+				
+                <button type="submit" class="btn">Buy Now</button>
+            
+            </div>
+             </form>
+           
             <%
 			}
 			con.close();
@@ -205,30 +216,7 @@ h1{
 			e.printStackTrace();
 			}
 			%>
-        </div>
-        
-            <div class="form-popup" id="myForm">
-            <form action="orderController" class="form-container">
-                <h2>Insert detail</h2>
-
-                <label for="qty"><b>Quantity</b></label>
-                <input type="number" name="qty" required>
-
-                <button type="submit" class="btn">Buy Now</button>
-		
-                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </form>
-            </div>
-
-            <script>
-            function openForm() {
-            document.getElementById("myForm").style.display = "block";
-            }
-
-            function closeForm() {
-            document.getElementById("myForm").style.display = "none";
-            }
-            </script>
+          
 
         <br>
         <div id="backprod2">
