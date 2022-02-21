@@ -197,7 +197,7 @@ h1{
 			
 		<input type="hidden" name="pPrice" value="<%=resultSet.getString("pPrice") %>">
 		<input type="hidden" name="pID" value="<%=resultSet.getString("pID") %>">
-		<input type="hidden" name="bID" value="<%=resultSet.getString("3") %>">
+		<input type="hidden" name="bID" value="<%=resultSet.getString("bID") %>">
             <%
 			}
 			con.close();
