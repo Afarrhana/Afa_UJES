@@ -3,7 +3,6 @@
     
 <!-- SERVLET FOR RETRIEVE CATEGORY -->
 <%@page import="ujes.db.ConnectionManager"%>
-<%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -64,7 +63,7 @@ String bID = request.getParameter("bID");
 	
 	<%
 	try{
-		Connection con = DriverManager.getConnection(connectionUrl, userid, password);
+		Connection con = ConnectionManager.getConnection();
 		Statement st=con.createStatement();
 		ResultSet rs=st.executeQuery("select * from OrderProduct o join product p on o.pID=p.pID join buyer b  on o.bID=b.bID where b.bID=1" );
 		while (rs.next()) {
