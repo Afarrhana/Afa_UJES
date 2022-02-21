@@ -58,6 +58,12 @@ ResultSet resultSet = null;
 	 </div>
 	</div><br>
 	
+	<form action="search.jsp" method="get">
+		<center><input type="text" class="form-control" name="search" placeholder="search product..."/>
+			<input type="submit"/>
+		</center>
+	</form>
+	
 	<h2><center>CATEGORIES</center></h2>
 	<div >
   		<table class="center">
