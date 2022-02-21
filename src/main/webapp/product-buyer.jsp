@@ -163,11 +163,11 @@ h1{
 </div>
 	<div class="topnav">
   	<div class="topnav-left">
-    <a id="left" class="active" href="homeS.jsp">Home</a>
+    <a id="left" class="active" href="homeB.jsp">Home</a>
   	</div>
   	
   	<div class="dropdown">
-		<button class="dropbtn">SELLER <img src="imagesM/avatar.png" alt="Avatar" class="avatar"> 
+		<button class="dropbtn">Buyer <img src="imagesM/avatar.png" alt="Avatar" class="avatar"> 
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">
@@ -175,20 +175,13 @@ h1{
 		  <a href="product.jsp">My Product</a>
 		  <a href="#">History</a>
 		  <a href="#">Sales</a>
-		  <a href="loginSeller.jsp">Logout</a>
+		  <a href="loginBuyer.jsp">Logout</a>
 		</div>
 	 </div>
 	</div><br>
+	
 	<h1>PRODUCT</h1>
-	       	<form action="orderController" class="form-container" method="post">
-	<%
-	try{
-	con = ConnectionManager.getConnection();
-	st = con.createStatement();
-	String sql ="select * from product NATURAL JOIN CATEGORY where pID=" + pID;
-	rs = st.executeQuery(sql);
-	while(rs.next()){
-	%>
+	<form action="orderController" class="form-container">
 	        <div id="backprod">
             <h1><%=rs.getString("pName") %></h1>
             <hr>
@@ -199,23 +192,12 @@ h1{
             <p>Quantity Available: <label for=""><%=rs.getInt("pQty") %></label><br></p>
             <p>Category: <label for="cID"><%=rs.getString("cName") %></label><br></p>
             <p>Description: <label for="pDesc"><%=rs.getString("pDesc") %></label><br><br></p>
-			<label for="qty"><b>Quantity</b></label>
-                <input type="number" name="qty" required>
-                
-                
-                
-				<input type="hidden" name="pPrice" value="<%=rs.getString("pPrice") %>">
-				<input type="hidden" name="pID" value="<%=rs.getString("pID") %>">
-				<input type="hidden" name="bID" value="<%=rs.getString("bID") %>">
-				
-				
-				
-				
-                <button type="submit" class="btn">Buy Now</button>
-            
-            </div>
-             </form>
-           
+			
+            <button onclick="openForm()" id="buybtn">Buy Now</button>
+			
+		<input type="hidden" name="pPrice" value="<%=resultSet.getString("pPrice") %>">
+		<input type="hidden" name="pID" value="<%=resultSet.getString("pID") %>">
+		<input type="hidden" name="bID" value="<%=resultSet.getString("bID") %>">
             <%
 			}
 			con.close();
@@ -223,6 +205,30 @@ h1{
 			e.printStackTrace();
 			}
 			%>
+        </div>
+        
+            <div class="form-popup" id="myForm">
+            <form action="orderController" class="form-container">
+                <h2>Insert detail</h2>
+
+                <label for="qty"><b>Quantity</b></label>
+                <input type="number" name="qty" required>
+
+                <button type="submit" class="btn">Buy Now</button>
+		
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+            </div>
+
+            <script>
+            function openForm() {
+            document.getElementById("myForm").style.display = "block";
+            }
+
+            function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+            }
+            </script>
 
         <br>
         <div id="backprod2">
