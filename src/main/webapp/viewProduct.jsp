@@ -6,6 +6,15 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+  <%
+  response.setHeader("Cache-Control","no-cache");
+  response.setHeader("Cache-Control","no-store");
+  response.setHeader("Pragma","no-cache");
+  response.setDateHeader ("Expires", 0);
+  if(session.getAttribute("currentSessionBuyer")==null)
+      response.sendRedirect("/0000 UJES SYSTEM/loginB.jsp");
+  %>
+<% String bEmail = (String) session.getAttribute("currentSessionBuyer");%> 
 <%
 String pID = request.getParameter("pID");
 
