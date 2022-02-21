@@ -105,7 +105,7 @@ h1{
   
   /* Full-width input fields */
   .form-container input[type=number] {
-    width: 90%;
+    width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
