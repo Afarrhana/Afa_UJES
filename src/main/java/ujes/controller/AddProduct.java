@@ -35,7 +35,7 @@ public class AddProduct extends HttpServlet {
 		p.setpPics(request.getParameter("pPics"));
 		
 		dao.addProduct(p);
-		dao.addBridgeProduct(p);
+		//dao.addBridgeProduct(p);
 		
 		request.setAttribute("product", ProductDAO.getAllProduct());
 		RequestDispatcher view = request.getRequestDispatcher("product.jsp");
