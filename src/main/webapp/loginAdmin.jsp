@@ -69,7 +69,7 @@
 
 	<div data-validate="Valid email is required: ex@abc.xyz">
 	<i class="material-icons" style="font-size:25px text-align:center;">email</i>
-	<input style="width: 80%; font-size:16px;" type="email" name="aName" placeholder="Username" required>
+	<input style="width: 80%; font-size:16px;" type="text" name="aName" placeholder="Username" required>
 	</div><br>
 	
 	<div data-validate="Password is required">
