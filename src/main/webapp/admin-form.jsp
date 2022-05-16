@@ -132,11 +132,11 @@ ADMINISTRATOR
 		<table id="addCtgry">
 			<tr>
 				<td>Admin Name: </td>
-				<td><input type="text" name="aName" id="name" value="<c:out value='${a.aName}' />"></td>
+				<td><input type="text" name="aName" id="name" value="<c:out value='${a.aName}' />" required></td>
 			</tr>
 			<tr>
 				<td>Admin Password:</td>
-				<td><input type="password" name="aPassw" value="<c:out value='${a.aPassw}' />"></td>
+				<td><input type="password" name="aPassw" value="<c:out value='${a.aPassw}' />" required></td>
 			</tr>
 		</table>
 
