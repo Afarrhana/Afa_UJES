@@ -143,7 +143,7 @@
  	      document.getElementById("message2").innerHTML = "**Confirm Password should match with the Password!";  
  	      return false;  
  	    } else {  
- 	      alert ("Your password created successfully");    
+ 	      alert ("Your account created successfully");    
  	    }  
  	 }  
     </script>
