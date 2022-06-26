@@ -31,28 +31,17 @@ public class paymentController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		int odID = Integer.parseInt(request.getParameter("odID"));
+		int odID = Integer.parseInt(request.getParameter("oID"));
 		
 		Date date = new Date();
 		java.sql.Date payDate = new java.sql.Date(date.getTime());
 		
 		try {
-			String searchQuery = "insert into Payment(payDate, odID) values ('"+payDate+"','"+odID+"')";
+			String searchQuery = "insert into payment(payDate, oID) values ('"+payDate+"','"+odID+"')";
 			Connection con = ConnectionManager.getConnection();
 			ResultSet rs = null; 
 			PreparedStatement ps=null;

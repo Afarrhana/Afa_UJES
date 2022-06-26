@@ -49,7 +49,7 @@ public class orderController extends HttpServlet {
 		int bID = Integer.parseInt(request.getParameter("bID"));
 		int qty = Integer.parseInt(request.getParameter("qty"));
 		float pPrice = Float.parseFloat(request.getParameter("pPrice"));
-		
+		System.out.println("Do post \nproduct id: " + pID + "buyer id: " + bID);
 		Date date = new Date();
 		java.sql.Date currDate = new java.sql.Date(date.getTime());
 		
@@ -58,7 +58,7 @@ public class orderController extends HttpServlet {
 		totalPrice=pPrice*qty;
 		
 		try {
-			String searchQuery = "insert into OrderProduct(odDate, pID, bID, qty, totprice) values ('"+currDate+"','"+pID+"', '"+bID+"' ,'"+qty+"', '"+totalPrice+"')";
+			String searchQuery = "insert into orderproduct(oDate, pID, bID, qty, totprice) values ('"+currDate+"','"+pID+"', '"+bID+"' ,'"+qty+"', '"+totalPrice+"')";
 			Connection con = ConnectionManager.getConnection();
 			 ResultSet rs = null; 
 			PreparedStatement ps=null;
@@ -69,19 +69,14 @@ public class orderController extends HttpServlet {
 
 			//4. execute query
 			stmt.executeUpdate(searchQuery);
-			System.out.println("Data is Successfully Updated into Customer Order Table");
 			
+			System.out.println("Data is Successfully Updated into Customer Order Table");
 			
 			con.close();
 		}catch(Exception e) {
 			e.printStackTrace();
-			
-			
 		}
-			
-	response.sendRedirect("checkout.jsp");
-		
-		
+		response.sendRedirect("checkout.jsp");
 	}
 
 }

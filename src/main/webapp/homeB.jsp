@@ -16,9 +16,11 @@
   if(session.getAttribute("currentSessionBuyer")==null)
       response.sendRedirect("/0000 UJES SYSTEM/loginBuyer.jsp");
   %>
-<% String bEmail = (String) session.getAttribute("currentSessionBuyer");%> 
+<% String bEmail = (String) session.getAttribute("currentSessionBuyer");
+	int bID = (int) session.getAttribute("buyerID");%> 
 <%
-//int bID = Integer.parseInt(request.getParameter("bID"));
+/* int bID = Integer.parseInt(request.getParameter("bID"));
+String bName = request.getParameter("bName"); */
 
 Connection connection = null;
 Statement statement = null;
@@ -47,7 +49,7 @@ ResultSet resultSet = null;
 		
   	
   	<div class="dropdown">
-		<button class="dropbtn"><%=bEmail%><img src="imagesM/avatar.png" alt="Avatar" class="avatar"> 
+		<button class="dropbtn"><img src="imagesM/avatar.png" alt="Avatar" class="avatar">&nbsp;<%=bEmail%>
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">

@@ -1,4 +1,4 @@
-package oracle.controller;
+package ujes.controller;
 
 import java.io.*;
 import javax.servlet.*;
@@ -42,6 +42,8 @@ public class LoginBuyer extends HttpServlet {
 			if(buyer.isValid()){
 				HttpSession session = request.getSession(true);
 				session.setAttribute("currentSessionBuyer", buyer.getBEmail());				
+				session.setAttribute("buyerID", buyer.getBID());				
+				session.setAttribute("buyerName", buyer.getBName());				
 				
 			//set current session based on email
 			request.setAttribute("buy", BuyerDAO.getBuyerByEmail(buyer.getBEmail())); 	

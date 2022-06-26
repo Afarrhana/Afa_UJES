@@ -9,18 +9,22 @@
 <%@page import="java.sql.PreparedStatement" %>
 <%
 String pID = request.getParameter("pID");
-String bID = request.getParameter("bID");
+String oID = request.getParameter("oID");
+//String bID = request.getParameter("bID");
 
 %>
- <%
+  <%
   response.setHeader("Cache-Control","no-cache");
   response.setHeader("Cache-Control","no-store");
   response.setHeader("Pragma","no-cache");
   response.setDateHeader ("Expires", 0);
+
   if(session.getAttribute("currentSessionBuyer")==null)
       response.sendRedirect("/0000 UJES SYSTEM/loginBuyer.jsp");
   %>
-<% String bEmail = (String) session.getAttribute("currentSessionBuyer");%> 
+<% String bEmail = (String) session.getAttribute("currentSessionBuyer");
+	int bID = (int) session.getAttribute("buyerID");%> 
+	
 <!-- END SERVLET FOR RETRIEVE CATEGORY -->   
   
 <!DOCTYPE html>
@@ -60,14 +64,14 @@ String bID = request.getParameter("bID");
 	
 	
 	<h3><center>ORDER</center></h3>
-	
+	<input type="hidden" name="bID" id="bID" value="<%=bID%>" />
 	<%
 	try{
 		Connection con = ConnectionManager.getConnection();
 		Statement st=con.createStatement();
-		ResultSet rs=st.executeQuery("select * from OrderProduct o join product p on o.pID=p.pID join buyer b  on o.bID=b.bID where b.bID=?");
+		ResultSet rs=st.executeQuery("select * from orderproduct o join product p on o.pID=p.pID join buyer b  on o.bID=b.bID where b.bID="+bID);
 		while (rs.next()) {
-
+		//int odID = Integer.parseInt(request.getParameter("oID"));
 	 
 	%>
 	
@@ -82,16 +86,16 @@ String bID = request.getParameter("bID");
 			<div class="form-row">
 						<div class="form-group col-md-6 col-sm-6">
 							<label for="bName"><b>Name</b></label> <input type="text" style="width:400px;"
-								class="form-control" name="bName" id="bName" value=<%=rs.getString("pName")%> readonly>
+								class="form-control" name="bName" id="bName" value=<%=rs.getString("pName")%> disabled>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="phoneNo"><b>Phone Number</b></label> 
-							<input style="width:400px;"	type="text" class="form-control" name="phoneNo" id="phoneNo" value="0<%=rs.getString("phoneNo")%>" readonly>
+							<input style="width:400px;"	type="text" class="form-control" name="phoneNo" id="phoneNo" value="0<%=rs.getString("phoneNo")%>" disabled>
 						</div><br><br>
 						
 						<div class="form-group col-md-6">
 							<label for="address"><b>Address</b></label> 
-							<input style="width:400px;"	type="text" class="form-control" name="address" id="address" value="<%=rs.getString("address")%>" readonly>
+							<input style="width:400px;"	type="text" class="form-control" name="address" id="address" value="<%=rs.getString("address")%>" disabled>
 						</div>
 			</div>
 					
@@ -105,24 +109,24 @@ String bID = request.getParameter("bID");
 						
 						<div class="form-group col-md-6 col-sm-6">
 							<label for="pName"><b>Product Name:</b></label>
-							<input style="width:400px;"	type="text" class="form-control" name="pName" id="pName" value="<%=rs.getString("pName")%>" readonly>
+							<input style="width:400px;"	type="text" class="form-control" name="pName" id="pName" value="<%=rs.getString("pName")%>" disabled>
 							<br>
 						</div><br>
 						
 						<div class="form-group col-md-6 col-sm-6">
 							<label for="qty"><b>Quantity:</b></label><br> 
-							<input style="width:400px;"	type="text" class="form-control" name="qty" id="qty" value="<%=rs.getString("qty")%>" readonly>
+							<input style="width:400px;"	type="text" class="form-control" name="qty" id="qty" value="<%=rs.getString("qty")%>" disabled>
 						</div>
 						<div class="form-group col-md-6 col-sm-6">
 							<label for="totprice"><b>Price: </b></label><br>
-							<input style="width:400px;"	type="text" class="form-control" name="totprice" id="totprice" value="RM <%=rs.getString("totprice")%>" readonly>
+							<input style="width:400px;"	type="text" class="form-control" name="totprice" id="totprice" value="RM <%=rs.getString("totprice")%>" disabled>
 							<br>
 						</div><br>
 			</div>
 			
 			<input type="hidden" name="bID" id="bID" value=""/>
 			<input type="hidden" name="pID" id="pID" value=""/>
-				
+			<input type="TEXT" name="oID" id="oID" value=""/>
 			
 			<input type="submit" value="confirm order">
 		</form>	

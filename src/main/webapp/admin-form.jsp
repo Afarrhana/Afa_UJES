@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+
+  <%
+  response.setHeader("Cache-Control","no-cache");
+  response.setHeader("Cache-Control","no-store");
+  response.setHeader("Pragma","no-cache");
+  response.setDateHeader ("Expires", 0);
+
+  if(session.getAttribute("currentSessionAdmin")==null)
+      response.sendRedirect("/0000 UJES SYSTEM/loginAdmin.jsp");
+  %>
+<% String AName = (String) session.getAttribute("currentSessionAdmin");
+   int aID = (int) session.getAttribute("currentSessionAID");
+%> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,7 +113,7 @@ ADMINISTRATOR
     <a id="left" href="#">User</a>
   	</div>
 	<div class="dropdown">
-		<button class="dropbtn"><img src="imagesM/avatar.png" alt="Avatar" class="avatar">  ADMIN
+		<button class="dropbtn" style="text-transform:uppercase"><img src="imagesM/avatar.png" alt="Avatar" class="avatar"><%=AName %>
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">
@@ -126,8 +140,9 @@ ADMINISTRATOR
 	</c:if>
 	
 	<c:if test="${a != null}">
-		<input type="hidden" name="aID" value="<c:out value='${a.aID}' />"/>
+		<input type="hidden" name="aID" value="<%=aID%>"/>
 	</c:if>
+			<input type="text" name="aID" value="<%=aID%>"/>
 	
 		<table id="addCtgry">
 			<tr>

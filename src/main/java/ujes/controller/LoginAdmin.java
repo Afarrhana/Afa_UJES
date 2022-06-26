@@ -44,9 +44,10 @@ public class LoginAdmin extends HttpServlet {
 			if(admin.isValid()){
 				HttpSession session = request.getSession(true);
 				session.setAttribute("currentSessionAdmin", admin.getAName());				
+				session.setAttribute("currentSessionAID", admin.getAID());				
 				
 			//set current session based on email
-			request.setAttribute("a", BuyerDAO.getBuyerByEmail(admin.getAName())); 	
+			request.setAttribute("a", AdminDAO.getAdminByEmail(admin.getAName())); 	
 			//to retrieve pass info
 			RequestDispatcher view = request.getRequestDispatcher("homeA.jsp");
 			//login page

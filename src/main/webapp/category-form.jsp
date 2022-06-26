@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+
+  <%
+  response.setHeader("Cache-Control","no-cache");
+  response.setHeader("Cache-Control","no-store");
+  response.setHeader("Pragma","no-cache");
+  response.setDateHeader ("Expires", 0);
+
+  if(session.getAttribute("currentSessionAdmin")==null)
+      response.sendRedirect("/0000 UJES SYSTEM/loginAdmin.jsp");
+  %>
+<% String AName = (String) session.getAttribute("currentSessionAdmin");
+   int aID = (int) session.getAttribute("currentSessionAID");
+%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,6 +78,7 @@ ADMINISTRATOR
 				<td><input type="file" id="images" name="cPics" value="images/<c:out value='${c.cPics}' />"><c:out value='${c.cPics}' /></td>
 			</tr>
 		</table>
+		<input type="hidden" name="aID" value="<%=aID%>"/>
 
 		<br><br>
 		<input type="reset" value="Reset">

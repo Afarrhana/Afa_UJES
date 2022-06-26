@@ -10,6 +10,17 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <%
+  response.setHeader("Cache-Control","no-cache");
+  response.setHeader("Cache-Control","no-store");
+  response.setHeader("Pragma","no-cache");
+  response.setDateHeader ("Expires", 0);
+
+  if(session.getAttribute("currentSessionAdmin")==null)
+      response.sendRedirect("/0000 UJES SYSTEM/loginAdmin.jsp");
+  %>
+<% String AName = (String) session.getAttribute("currentSessionAdmin");%> 
+
 <style>
 table {
   border-radius: 1em;
@@ -47,15 +58,19 @@ th, td, tr {
 <h1 style="text-align: center; color:#420B89;">ADMINISTRATOR</h1>
 </div>
 <body>
+<%
+            //Checking whether admin in session or not
+            if (session.getAttribute("currentSessionAdmin") != null && session.getAttribute("currentSessionAdmin") != "") {
+        %>
 <div class="topnav">
   	<div class="topnav-left">
     <a id="left" class="active" href="homeA.jsp">Home</a>
     <a id="left" href="adminList.jsp">Admin</a>
-    <a id="left" href="sellerList.jsp">Seller</a>
-    <a id="left" href="buyerList.jsp">User</a>
+    <!-- <a id="left" href="sellerList.jsp">Seller</a> -->
+    <!-- <a id="left" href="buyerList.jsp">User</a> -->
   	</div>
   	<div class="dropdown">
-		<button class="dropbtn"><img src="imagesM/avatar.png" alt="Avatar" class="avatar">  ADMIN
+		<button class="dropbtn" style="text-transform: uppercase"><img src="imagesM/avatar.png" alt="Avatar" class="avatar">&nbsp; <%=AName%>
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">
@@ -83,5 +98,10 @@ th, td, tr {
 </div>
 
 </center>
+<%
+            } else {
+                response.sendRedirect("index.jsp");
+            }
+        %>
 </body>
 </html>

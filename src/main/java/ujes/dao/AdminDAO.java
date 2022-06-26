@@ -22,7 +22,7 @@ public class AdminDAO {
 	static String aName;
 	static String aPassw;
 	
-	private static final String INSERT_ADMIN_SQL = "INSERT INTO ADMIN(aName, Passw, newaID) VALUES(?, ?, 1)";
+	private static final String INSERT_ADMIN_SQL = "INSERT INTO ADMIN(aName, Passw, newaID) VALUES(?, ?, ?)";
 	private static final String SELECT_ADMIN_BY_ID = "select aID, aName, Passw from Admin where aID =? and aID!=1";
 	private static final String SELECT_ALL_ADMIN = "select * from Admin";
 	private static final String DELETE_ADMIN_SQL = "delete from Admin where aID = ?";
@@ -31,13 +31,15 @@ public class AdminDAO {
 	public void addAdmin(Admin bean) {
 		aName = bean.getAName();
 		aPassw = bean.getPassw();
-		
+		aID = bean.getAID();
+
 		try {
 			con = ConnectionManager.getConnection();
 			
 			ps = con.prepareStatement(INSERT_ADMIN_SQL);
 			ps.setString(1, aName);
 			ps.setString(2, aPassw);
+			ps.setInt(3, aID);
 
 			ps.executeUpdate();
 			System.out.println("Succesfully inserted admin");
@@ -119,7 +121,7 @@ public class AdminDAO {
 				//get email and password
 				aName = bean.getAName();
 				aPassw = bean.getPassw();
-
+				
 				//convert the password to MD5
 				MessageDigest md = MessageDigest.getInstance("MD5");
 				md.update(aPassw.getBytes());

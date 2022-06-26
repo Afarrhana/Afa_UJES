@@ -27,6 +27,7 @@ public class AddAdmin extends HttpServlet {
     	Admin d = new Admin();
 		d.setAName(request.getParameter("aName"));
 		d.setPassw(request.getParameter("aPassw"));
+		d.setAID(Integer.parseInt(request.getParameter("aID")));
 		dao.addAdmin(d);
 		System.out.println(d.getAName() + d.getPassw());
 		//request.setAttribute("admin", AdminDAO.getAllAdmin());

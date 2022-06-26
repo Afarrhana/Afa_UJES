@@ -12,7 +12,9 @@
   if(session.getAttribute("currentSessionBuyer")==null)
       response.sendRedirect("/0000 UJES SYSTEM/loginBuyer.jsp");
   %>
-<% String bEmail = (String) session.getAttribute("currentSessionBuyer");%> 
+<% String bEmail = (String) session.getAttribute("currentSessionBuyer");
+int bID = (int) session.getAttribute("buyerID");%> 
+
 <%
 int pID = Integer.parseInt(request.getParameter("pID"));//Integer.parseInt(request.getParameter("pID"));
 //int bID = Integer.parseInt(request.getParameter("bID"));
@@ -169,7 +171,7 @@ h1{
   	</div>
   	
   	<div class="dropdown">
-		<button class="dropbtn"><%=bEmail%><img src="imagesM/avatar.png" alt="Avatar" class="avatar"> 
+		<button class="dropbtn"><img src="imagesM/avatar.png" alt="Avatar" class="avatar"> <%=bEmail%>
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">
@@ -203,16 +205,13 @@ h1{
             <p>Category: <label for="cID"><%=rs.getString("cName") %></label><br></p>
             <p>Description: <label for="pDesc"><%=rs.getString("pDesc") %></label><br><br></p>
 			<label for="qty"><b>Quantity</b></label>
-                <input type="number" name="qty" required>
+                <input type="number" name="qty" value="1" required>
                 
                 
                 
 				<input type="hidden" name="pPrice" value="<%=rs.getString("pPrice") %>">
 				<input type="hidden" name="pID" value="<%=rs.getString("pID") %>">
-				<input type="hidden" name="bID" value="1">
-				
-				
-				
+				<input type="hidden" name="bID" value="<%=bID%>">
 				
                 <button type="submit" class="btn">Buy Now</button>
             

@@ -4,6 +4,18 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+  <%
+  response.setHeader("Cache-Control","no-cache");
+  response.setHeader("Cache-Control","no-store");
+  response.setHeader("Pragma","no-cache");
+  response.setDateHeader ("Expires", 0);
+
+  if(session.getAttribute("currentSessionAdmin")==null)
+      response.sendRedirect("/0000 UJES SYSTEM/loginAdmin.jsp");
+  %>
+<% String AName = (String) session.getAttribute("currentSessionAdmin");
+   int aID = (int) session.getAttribute("currentSessionAID");
+%> 
 
 <%
 Connection connection = null;
@@ -108,7 +120,7 @@ ADMINISTRATOR
     <a id="left" href="buyerList.jsp">User</a>
   	</div>
 	<div class="dropdown">
-		<button class="dropbtn"><img src="imagesM/avatar.png" alt="Avatar" class="avatar">Admin
+		<button class="dropbtn" style="text-transform:uppercase"><img src="imagesM/avatar.png" alt="Avatar" class="avatar"><%=AName %>
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">
@@ -138,15 +150,15 @@ ADMINISTRATOR
 				try{
 					connection = ConnectionManager.getConnection();
 					statement=connection.createStatement();
-					String sql ="select * from admin";
+					String sql ="select * from admin where newaID= (select aID from admin where aName='" + AName + "')";
 					resultSet = statement.executeQuery(sql);
 					while(resultSet.next()){
 				%>
 					<tr>
 						<td><%=resultSet.getInt("aID") %></td>
 						<td><%=resultSet.getString("aName") %></td>
-						<%if(resultSet.getString("newaID")!= 0){ %>
-							<td><%=resultSet.getString("newaID") %></td>
+						<%if(resultSet.getInt("newaID")!= 0){ %>
+							<td><%=resultSet.getInt("newaID") %></td>
 		                <% }else {%> <td>Main Admin</td> <% } %>
 						<td><a href="DeleteAdmin?aID=<%=resultSet.getString("aID") %>" onclick="confirm('Are you sure you want to delete this admin?');">Delete</a></td>
 					</tr>

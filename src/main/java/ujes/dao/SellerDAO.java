@@ -95,7 +95,7 @@ public class SellerDAO {
 				//call getConnection() method 
 				con = ConnectionManager.getConnection();
 				//3. create statement  
-				String query = "INSERT INTO SELLER (SNAME, SHOPNAME, SPASSW, SEMAIL, ACCNO, AID)values(?,?,?,?,?,1)";
+				String query = "INSERT INTO SELLER (SNAME, SHOPNAME, SPASSW, SEMAIL, ACCNO, AID)values(?,?,?,?,?,?)";
 				ps=con.prepareStatement(query);
 				//ps=con.prepareStatement("INSERT INTO SELLER (SNAME, SHOPNAME, SPASSW, SEMAIL, ACCNO, AID)values(?,?,?,?,?,1)");
 				ps.setString(1,sName);
@@ -103,6 +103,7 @@ public class SellerDAO {
 				ps.setString(3,spassw);
 				ps.setString(4,sEmail);
 				ps.setLong(5,accNo);
+				ps.setInt(6, aID);
 				//4. execute query
 				ps.executeUpdate();			
 				
