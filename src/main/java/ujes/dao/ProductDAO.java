@@ -16,15 +16,15 @@ public class ProductDAO {
 	static PreparedStatement ps = null;
 	static Statement stmt = null;
 	static ResultSet rs = null;
-	int cID, pID, pQty;
+	int cID, sID, pID, pQty;
 	String pName, pDesc, pPics;
 	double pPrice;
 	
-	private static final String INSERT_PRODUCT_SQL = "INSERT INTO Product (pName, pDesc, pPrice, pQty, pPics, cID) VALUES(?, ?, ?, ?, ?, ?)";
+	private static final String INSERT_PRODUCT_SQL = "INSERT INTO Product (pName, pDesc, pPrice, pQty, pPics, cID, sID) VALUES(?, ?, ?, ?, ?, ?, ?)";
 	private static final String SELECT_PRODUCT_BY_ID = "select pID, pName, pDesc, pPrice, pQty, pPics, cID from Product where pID =?";
 	private static final String SELECT_ALL_PRODUCT = "select * from Product";
 	private static final String DELETE_PRODUCT_SQL = "delete from Product where pID = ?";
-	private static final String UPDATE_PRODUCT_SQL = "update Product set pName =?, pDesc=?, pPrice=?, pQty=?, pPics=?, cID=? where pID =?";
+	private static final String UPDATE_PRODUCT_SQL = "update Product set pName =?, pDesc=?, pPrice=?, pQty=?, pPics=?, cID=?, sID=? where pID =?";
 	private static final String INSERT_PRODUCTBRIDGE_SQL = "";
 
 	public void addProduct(Product bean) {
@@ -34,6 +34,7 @@ public class ProductDAO {
 		pQty = bean.getpQty();
 		pPics = bean.getpPics();
 		cID = bean.getcID();
+		sID = bean.getsID();
 		
 		try {
 			con = ConnectionManager.getConnection();
@@ -45,6 +46,7 @@ public class ProductDAO {
 			ps.setInt(4, pQty);
 			ps.setString(5, pPics);
 			ps.setInt(6, cID);
+			ps.setInt(7, sID);
 
 			ps.executeUpdate();
 			System.out.println("Succesfully inserted product");
@@ -123,6 +125,7 @@ public class ProductDAO {
 		pPics = bean.getpPics();
 		cID = bean.getcID();
 		pID = bean.getpID();
+		sID = bean.getsID();
 		
 		try {
 			con = ConnectionManager.getConnection();
@@ -135,6 +138,7 @@ public class ProductDAO {
 			ps.setString(5, pPics);
 			ps.setInt(6, cID);
 			ps.setInt(7, pID);
+			ps.setInt(8, sID);
 
 			ps.executeUpdate();
 			System.out.println("Succesfully updated product");

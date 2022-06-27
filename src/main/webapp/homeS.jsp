@@ -16,7 +16,9 @@
   if(session.getAttribute("currentSessionSeller")==null)
       response.sendRedirect("/0000 UJES SYSTEM/loginSeller.jsp");
   %>
-<% String sEmail = (String) session.getAttribute("currentSessionSeller");%> 
+<% String sEmail = (String) session.getAttribute("currentSessionSeller");
+	int sID = (int) session.getAttribute("currentSessionSID");
+%> 
 
 <%
 //int sID = Integer.parseInt(request.getParameter("sID"));
@@ -48,7 +50,7 @@ ResultSet resultSet = null;
   	</div>
   	
   	<div class="dropdown">
-		<button class="dropbtn"><%=sEmail%><img src="imagesM/avatar.png" alt="Avatar" class="avatar">
+		<button class="dropbtn"><img src="imagesM/avatar.png" alt="Avatar" class="avatar"><%=sEmail%>
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">
@@ -95,7 +97,7 @@ ResultSet resultSet = null;
 		try{
 		connection = ConnectionManager.getConnection();
 		statement=connection.createStatement();
-		String sql ="select * from product";
+		String sql ="select * from product where sID="+sID;
 		resultSet = statement.executeQuery(sql);
 		while(resultSet.next()){
 		%>

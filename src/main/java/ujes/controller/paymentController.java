@@ -36,6 +36,9 @@ public class paymentController extends HttpServlet {
 		doGet(request, response);
 		
 		int odID = Integer.parseInt(request.getParameter("oID"));
+		//int byID = Integer.parseInt(request.getParameter("bID"));
+		//int pdID = Integer.parseInt(request.getParameter("pID"));
+		int payID = 0;
 		
 		Date date = new Date();
 		java.sql.Date payDate = new java.sql.Date(date.getTime());
@@ -43,8 +46,8 @@ public class paymentController extends HttpServlet {
 		try {
 			String searchQuery = "insert into payment(payDate, oID) values ('"+payDate+"','"+odID+"')";
 			Connection con = ConnectionManager.getConnection();
-			ResultSet rs = null; 
-			PreparedStatement ps=null;
+			
+			payID = Integer.parseInt(request.getParameter("payID"));
 			Statement stmt=null;
 				
 			//3. create statement 
@@ -58,13 +61,8 @@ public class paymentController extends HttpServlet {
 			con.close();
 		}catch(Exception e) {
 			e.printStackTrace();
-			
-			
 		}
-			
-	response.sendRedirect("payment.jsp");
-		
-		
+		response.sendRedirect("payment.jsp?oID=" + odID);
 	}
 
 }

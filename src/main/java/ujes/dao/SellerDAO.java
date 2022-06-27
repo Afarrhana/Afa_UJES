@@ -48,9 +48,13 @@ public class SellerDAO {
 
 				// if user exists set the isValid variable to true
 				if (more) {
+					int sID = rs.getInt("sID");
+					String sName = rs.getString("sName");
 					String sEmail = rs.getString("sEmail");
 					bean.setSEmail(sEmail);
-
+					bean.setSID(sID);
+					bean.setSName(sName);
+					
 					bean.setValid(true);
 				}
 				// if user does not exist set the isValid variable to false
@@ -95,15 +99,13 @@ public class SellerDAO {
 				//call getConnection() method 
 				con = ConnectionManager.getConnection();
 				//3. create statement  
-				String query = "INSERT INTO SELLER (SNAME, SHOPNAME, SPASSW, SEMAIL, ACCNO, AID)values(?,?,?,?,?,?)";
+				String query = "INSERT INTO SELLER (SNAME, SHOPNAME, SPASSW, SEMAIL, ACCNO)values(?,?,?,?,?)";
 				ps=con.prepareStatement(query);
-				//ps=con.prepareStatement("INSERT INTO SELLER (SNAME, SHOPNAME, SPASSW, SEMAIL, ACCNO, AID)values(?,?,?,?,?,1)");
 				ps.setString(1,sName);
 				ps.setString(2,shopName);
 				ps.setString(3,spassw);
 				ps.setString(4,sEmail);
 				ps.setLong(5,accNo);
-				ps.setInt(6, aID);
 				//4. execute query
 				ps.executeUpdate();			
 				

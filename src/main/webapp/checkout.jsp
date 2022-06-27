@@ -23,7 +23,8 @@ String oID = request.getParameter("oID");
       response.sendRedirect("/0000 UJES SYSTEM/loginBuyer.jsp");
   %>
 <% String bEmail = (String) session.getAttribute("currentSessionBuyer");
-	int bID = (int) session.getAttribute("buyerID");%> 
+	int bID = (int) session.getAttribute("buyerID");
+	//int oID = Integer.parseInt(request.getParameter("oID"));%> 
 	
 <!-- END SERVLET FOR RETRIEVE CATEGORY -->   
   
@@ -124,11 +125,11 @@ String oID = request.getParameter("oID");
 						</div><br>
 			</div>
 			
-			<input type="hidden" name="bID" id="bID" value=""/>
-			<input type="hidden" name="pID" id="pID" value=""/>
-			<input type="TEXT" name="oID" id="oID" value=""/>
+			<input type="hidden" name="bID" id="bID" value="<%=rs.getInt("bID")%>"/>
+			<input type="hidden" name="pID" id="pID" value="<%=rs.getInt("pID")%>"/>
+			<input type="hidden" name="oID" id="oID" value="<%=rs.getInt("oID")%>" />
 			
-			<input type="submit" value="confirm order">
+			<input type="submit" value="Payment">
 		</form>	
 		<%
 		}

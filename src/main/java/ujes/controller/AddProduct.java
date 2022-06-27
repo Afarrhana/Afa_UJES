@@ -33,7 +33,8 @@ public class AddProduct extends HttpServlet {
 		p.setpPrice(Double.parseDouble(request.getParameter("pPrice")));
 		p.setpQty(Integer.parseInt(request.getParameter("pQty")));
 		p.setpPics(request.getParameter("pPics"));
-		
+		p.setsID(Integer.parseInt(request.getParameter("sID")));
+
 		dao.addProduct(p);
 		//dao.addBridgeProduct(p);
 		

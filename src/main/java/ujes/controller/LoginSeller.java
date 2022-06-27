@@ -40,6 +40,7 @@ public class LoginSeller extends HttpServlet {
 			if(seller.isValid()){
 				HttpSession session = request.getSession(true);
 				session.setAttribute("currentSessionSeller", seller.getSEmail());				
+				session.setAttribute("currentSessionSID", seller.getSID());				
 				
 			//set current session based on email
 			request.setAttribute("seller", SellerDAO.getSellerByEmail(seller.getSEmail())); 	

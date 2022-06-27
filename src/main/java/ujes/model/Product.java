@@ -1,11 +1,11 @@
 package ujes.model;
 
 public class Product {
-	private int cID, pID, pQty;
+	private int cID, pID, pQty, sID;
 	private String pName, pDesc, pPics;
 	private double pPrice;
 	
-	public Product(int cID, int pQty, String pName, String pDesc, String pPics, double pPrice) {
+	public Product(int cID, int pQty, String pName, String pDesc, String pPics, double pPrice, int sID) {
 		super();
 		this.cID = cID;
 		this.pQty = pQty;
@@ -13,8 +13,9 @@ public class Product {
 		this.pDesc = pDesc;
 		this.pPics = pPics;
 		this.pPrice = pPrice;
+		this.sID = sID;
 	}
-	public Product(int cID, int pID, int pQty, String pName, String pDesc, String pPics, double pPrice) {
+	public Product(int cID, int pID, int pQty, String pName, String pDesc, String pPics, double pPrice, int sID) {
 		super();
 		this.cID = cID;
 		this.pID = pID;
@@ -23,6 +24,7 @@ public class Product {
 		this.pDesc = pDesc;
 		this.pPics = pPics;
 		this.pPrice = pPrice;
+		this.sID = sID;
 	}
 	public Product() {}
 	
@@ -67,5 +69,11 @@ public class Product {
 	}
 	public void setpPrice(double pPrice) {
 		this.pPrice = pPrice;
+	}
+	public int getsID() {
+		return sID;
+	}
+	public void setsID(int sID) {
+		this.sID = sID;
 	}
 }

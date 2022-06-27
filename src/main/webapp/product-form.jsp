@@ -14,7 +14,9 @@
   if(session.getAttribute("currentSessionSeller")==null)
       response.sendRedirect("/0000 UJES SYSTEM/loginSeller.jsp");
   %>
-<% String sEmail = (String) session.getAttribute("currentSessionSeller");%>
+<% String sEmail = (String) session.getAttribute("currentSessionSeller");
+int sID = (int) session.getAttribute("currentSessionSID");
+%>
 <%
  Connection con = null;
  Statement stmt = null;
@@ -47,7 +49,7 @@
   	</div>
   	
   	<div class="dropdown">
-		<button class="dropbtn">SELLER <img src="imagesM/avatar.png" alt="Avatar" class="avatar"> 
+		<button class="dropbtn"><img src="imagesM/avatar.png" alt="Avatar" class="avatar"> <%=sID %>
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">
@@ -122,6 +124,7 @@
 		</table>
 
 		<br><br>
+		<input type="hidden" name="sID" value="<%=sID%>"/>
 		
 		<input type="reset" value="Reset">
 		<input type="submit" value="Submit">

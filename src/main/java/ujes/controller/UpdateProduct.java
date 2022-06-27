@@ -40,6 +40,7 @@ public class UpdateProduct extends HttpServlet {
 		p.setpQty(Integer.parseInt(request.getParameter("pQty")));
 		p.setpPics(request.getParameter("pPics"));
 		p.setcID(Integer.parseInt(request.getParameter("cID")));
+		p.setsID(Integer.parseInt(request.getParameter("sID")));
 
 		dao.updateProduct(p);
 		

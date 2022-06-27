@@ -15,12 +15,13 @@
   if(session.getAttribute("currentSessionBuyer")==null)
       response.sendRedirect("/0000 UJES SYSTEM/loginBuyer.jsp");
   %>
-<% String bEmail = (String) session.getAttribute("currentSessionBuyer");%> 
+<% String bEmail = (String) session.getAttribute("currentSessionBuyer");
+int bID = (int) session.getAttribute("buyerID");
+%> 
 
 <%
-String pID = request.getParameter("pID");
-String bID = request.getParameter("bID");
-String odID = request.getParameter("odID");
+//String pID = request.getParameter("pID");
+//String oID = request.getParameter("oID");
 
 %>    
 <!-- END SERVLET FOR RETRIEVE CATEGORY -->   
@@ -41,6 +42,16 @@ String odID = request.getParameter("odID");
 <img src="" alt="" style="height:50px;">
     <center><img src="imagesM/MASMED.png" alt="" style="height:60px;"></center>
 </div>
+<style>
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+
+
+</style>
+
 <body>
 	<div class="topnav">
   	<div class="topnav-left">
@@ -48,7 +59,7 @@ String odID = request.getParameter("odID");
   	</div>
   	
   	<div class="dropdown">
-		<button class="dropbtn"><%=bEmail%><img src="imagesM/avatar.png" alt="Avatar" class="avatar"> 
+		<button class="dropbtn"><img src="imagesM/avatar.png" alt="Avatar" class="avatar"> <%=bEmail%>
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content">
@@ -59,16 +70,8 @@ String odID = request.getParameter("odID");
 	 </div>
 	</div><br>
 	
-<style>
-  .form-container {
-    max-width: 300px;
-    padding: 10px;
-    background-color: white;
-  }
 
-
-</style>	
-	
+	<!-- old payment -->
 	<h3><center>PAYMENT </center></h3><br>
 	<p><center>Payment has been made!</center></p>
 	
@@ -76,7 +79,7 @@ String odID = request.getParameter("odID");
 	try{
 		Connection con = ConnectionManager.getConnection();
 		Statement st=con.createStatement();
-		ResultSet rs=st.executeQuery("select * from Payment p join OrderProduct o on p.odID=o.odID join buyer b on o.bID=b.bID where b.bID=1" );
+		ResultSet rs=st.executeQuery("select * from Payment p join OrderProduct o on p.oID=o.oID join buyer b on o.bID=b.bID where b.bID="+bID);
 		while (rs.next()) {
 
 	 
@@ -86,7 +89,7 @@ String odID = request.getParameter("odID");
   		<table class="center" style="width:80%;">		
   		
 		<center>
-		<form method="post" action="" >
+		<form method="post" action="homeB.jsp" >
 		<br>
 		
 			
@@ -115,7 +118,7 @@ String odID = request.getParameter("odID");
 							<br>
 						</div><br>
 			</div>
-			<input type="hidden" name="odID" id="odID" value="<%=rs.getString("odID")%>"/>
+			<input type="text" name="oID" id="oID" value="<%=rs.getString("oID")%>"/>
 				
 			
 		</form>	

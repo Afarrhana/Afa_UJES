@@ -142,7 +142,7 @@ ADMINISTRATOR
 	<c:if test="${a != null}">
 		<input type="hidden" name="aID" value="<%=aID%>"/>
 	</c:if>
-			<input type="text" name="aID" value="<%=aID%>"/>
+			<input type="hidden" name="aID" value="<%=aID%>"/>
 	
 		<table id="addCtgry">
 			<tr>

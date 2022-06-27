@@ -49,6 +49,7 @@ public class BuyerDAO {
 				// if user exists set the isValid variable to true
 				if (more) {
 					int bID = rs.getInt("bID");
+					String bName = rs.getString("bName");
 					String bEmail = rs.getString("bEmail");
 					bean.setBEmail(bEmail);
 					bean.setBID(bID);
