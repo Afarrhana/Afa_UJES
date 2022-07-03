@@ -160,7 +160,7 @@ ADMINISTRATOR
 						<%if(resultSet.getInt("newaID")!= 0){ %>
 							<td><%=resultSet.getInt("newaID") %></td>
 		                <% }else {%> <td>Main Admin</td> <% } %>
-						<td><a href="DeleteAdmin?aID=<%=resultSet.getString("aID") %>" onclick="confirm('Are you sure you want to delete this admin?');">Delete</a></td>
+						<td><a href="DeleteAdmin?aID=<%=resultSet.getString("aID") %>" onclick="return confirm('Are you sure you want to delete this admin?');">Delete</a></td>
 					</tr>
 					<%
 					}
