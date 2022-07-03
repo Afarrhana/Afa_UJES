@@ -75,7 +75,7 @@ ADMINISTRATOR
 			</tr>
 			<tr>
 				<td>Category Image:</td>
-				<td><input type="file" id="images" name="cPics" value="images/<c:out value='${c.cPics}' />"><c:out value='${c.cPics}' /></td>
+				<td><input type="file" id="images" name="cPics" value="images/<c:out value='${c.cPics}' />" required><c:out value='${c.cPics}' /></td>
 			</tr>
 		</table>
 		<input type="hidden" name="aID" value="<%=aID%>"/>
