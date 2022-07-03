@@ -165,7 +165,7 @@ h1{
 <body>
 	<div class="topnav">
   	<div class="topnav-left">
-    <a id="left" href="homeS.jsp">Home</a>
+    <a id="left" href="homeB.jsp">Home</a>
   	</div>
   	
   	<div class="dropdown">
