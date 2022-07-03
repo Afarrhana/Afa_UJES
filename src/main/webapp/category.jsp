@@ -86,7 +86,7 @@ ADMINISTRATOR
 						<td><%=resultSet.getString("cName") %></td>
 						<td><img src="images/<%=resultSet.getString("cPics") %>" style="height:30%; background-size: collapsed;"></td>
 						<td><a href="UpdateCategory?cID=<%=resultSet.getString("cID")%>">Edit</a></td>
-						<td><a href="DeleteCategory?cID=<%=resultSet.getString("cID") %>" onclick="confirm('Are you sure you want to delete this item?');">Delete</a></td>
+						<td><a href="DeleteCategory?cID=<%=resultSet.getString("cID") %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
 					</tr>
 					<%
 					}
