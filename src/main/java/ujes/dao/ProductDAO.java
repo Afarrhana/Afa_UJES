@@ -137,8 +137,8 @@ public class ProductDAO {
 			ps.setInt(4, pQty);
 			ps.setString(5, pPics);
 			ps.setInt(6, cID);
-			ps.setInt(7, pID);
-			ps.setInt(8, sID);
+			ps.setInt(7, sID);
+			ps.setInt(8, pID);
 
 			ps.executeUpdate();
 			System.out.println("Succesfully updated product");
