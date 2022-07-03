@@ -97,7 +97,7 @@ ResultSet resultSet = null;
 		
 		
 		String search = request.getParameter("search");
-		String sql = "select * from product where pName LIKE '%" +search+"%'";
+		String sql = "select * from product where pName='" +search+"'";
 		
 		
 		resultSet = statement.executeQuery(sql);
