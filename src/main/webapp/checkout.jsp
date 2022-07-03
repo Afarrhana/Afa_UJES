@@ -87,7 +87,7 @@ String oID = request.getParameter("oID");
 			<div class="form-row">
 						<div class="form-group col-md-6 col-sm-6">
 							<label for="bName"><b>Name</b></label> <input type="text" style="width:400px;"
-								class="form-control" name="bName" id="bName" value=<%=rs.getString("pName")%> disabled>
+								class="form-control" name="bName" id="bName" value=<%=rs.getString("bName")%> disabled>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="phoneNo"><b>Phone Number</b></label> 
