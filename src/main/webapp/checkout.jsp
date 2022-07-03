@@ -130,6 +130,7 @@ String oID = request.getParameter("oID");
 			<input type="hidden" name="oID" id="oID" value="<%=rs.getInt("oID")%>" />
 			
 			<input type="submit" value="Payment">
+			<button type="button" ><a href="DeleteOrder?oID=<%=rs.getString("oID") %>">Cancel</a></button>
 		</form>	
 		<%
 		}
