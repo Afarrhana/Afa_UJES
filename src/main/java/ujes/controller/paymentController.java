@@ -33,7 +33,6 @@ public class paymentController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
 		
 		int odID = Integer.parseInt(request.getParameter("oID"));
 		//int byID = Integer.parseInt(request.getParameter("bID"));
