@@ -89,7 +89,7 @@ ResultSet resultSet = null;
 						<td><%=resultSet.getInt("pQty") %></td>
 						<td><a href="ViewProduct?pID=<%=resultSet.getString("pID")%>">View</a></td>
 						<td><a href="UpdateProduct?pID=<%=resultSet.getString("pID")%>">Edit</a></td>
-						<td><a href="DeleteProduct?pID=<%=resultSet.getString("pID") %>" onclick="confirm('Are you sure you want to delete this item?');">Delete</a></td>
+						<td><a href="DeleteProduct?pID=<%=resultSet.getString("pID") %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
 					</tr>
 					<%
 					}
